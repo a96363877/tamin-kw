@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import Loader from "@/components/loader"
+import { LiveChatWidget } from '@livechat/widget-react'
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -620,6 +621,7 @@ useEffect(()=>{
         </div>
       )}
           {isloading && <Loader/>}
+          <LiveChatWidget license="19131098"/>
 
     </main>
   )
