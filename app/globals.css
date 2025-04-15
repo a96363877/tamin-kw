@@ -8,6 +8,29 @@
   font-family: "Zain", sans-serif;
 
 }
+.site-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  z-index: 10000000;
+}
+.site-loader span {
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-animation: site-loader .7s linear infinite;
+  animation: site-loader .7s linear infinite;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 180px;
+  height: 180px;
+  margin: -90px 0 0 -90px;
+  border: 5px solid rgba(255, 255, 255, .05);
+  border-left-color: #c2a377;
+}
 @layer base {
   :root {
     --background: 0 0% 100%;
