@@ -64,7 +64,7 @@ export default function QuoteLayout({ children }: QuoteLayoutProps) {
             <h1 className="text-[#0a1e3c] text-xl font-bold">طلب عرض سعر</h1>
             <span className="text-[#c9a96e] font-medium">{progress.toFixed(0)}% مكتمل</span>
           </div>
-          <Progress value={progress} className="h-2 bg-gray-200" indicatorClassName="bg-[#c9a96e]" />
+          <Progress value={progress} className="h-2 bg-gray-200" indicator={true}  />
         </motion.div>
 
         {/* Steps */}
