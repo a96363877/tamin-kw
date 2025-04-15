@@ -63,12 +63,12 @@ const [isloading, setLoading]=useState(true)
   ]
 
   const partners = [
-    { id: 1, name: "Partner 1", logo: "/placeholder.svg?height=60&width=120" },
-    { id: 2, name: "Partner 2", logo: "/placeholder.svg?height=60&width=120" },
-    { id: 3, name: "Partner 3", logo: "/placeholder.svg?height=60&width=120" },
-    { id: 4, name: "Partner 4", logo: "/placeholder.svg?height=60&width=120" },
-    { id: 5, name: "Partner 5", logo: "/placeholder.svg?height=60&width=120" },
-    { id: 6, name: "Partner 6", logo: "/placeholder.svg?height=60&width=120" },
+    { id: 1, name: "GIG", logo: "/vercel.svg" },
+    { id: 2, name: " 2", logo: "/logo.png" },
+    { id: 3, name: " 3", logo: "/" },
+    { id: 4, name: " 4", logo: "/" },
+    { id: 5, name: " 5", logo: "/" },
+    { id: 6, name: " 6", logo: "/" },
   ]
 
   const news = [
@@ -252,53 +252,170 @@ useEffect(()=>{
           </div>
         </motion.div>
       </section>
-
-      {/* Testimonials Section */}
-      <section ref={testimonialsRef} className="py-12 px-4 bg-[#081d3a]">
+    {/* Statistics Section */}
+    <section ref={testimonialsRef} className="py-12 px-4 bg-[#081d3a]">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isTestimonialsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.7 }}
           className="max-w-4xl mx-auto"
         >
-          <h2 className="text-2xl font-bold mb-8 text-center">ماذا يقول عملاؤنا</h2>
+          <h2 className="text-2xl font-bold mb-8 text-center">إحصائيات الشركة</h2>
 
-          <Tabs defaultValue="1" className="w-full">
-            <TabsList className="grid grid-cols-3 mb-8">
-              {testimonials.map((testimonial) => (
-                <TabsTrigger
-                  key={testimonial.id}
-                  value={testimonial.id.toString()}
-                  className="data-[state=active]:bg-[#1a4980]"
-                >
-                  {testimonial.name}
-                </TabsTrigger>
-              ))}
-            </TabsList>
-
-            {testimonials.map((testimonial) => (
-              <TabsContent key={testimonial.id} value={testimonial.id.toString()}>
-                <div className="bg-[#1a4980] p-6 rounded-lg">
-                  <div className="flex flex-col md:flex-row items-center md:items-start">
-                    <Image
-                      src={testimonial.image || "/placeholder.svg"}
-                      alt={testimonial.name}
-                      width={80}
-                      height={80}
-                      className="rounded-full mb-4 md:mb-0 md:ml-6"
-                    />
-                    <div>
-                      <p className="text-gray-300 mb-4 text-lg leading-relaxed">"{testimonial.content}"</p>
-                      <div>
-                        <h4 className="font-bold text-lg">{testimonial.name}</h4>
-                        <p className="text-[#c9a96e]">{testimonial.role}</p>
-                      </div>
-                    </div>
-                  </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Statistic Card 1 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isTestimonialsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="bg-[#1a4980] p-6 rounded-lg text-center"
+            >
+              <div className="flex justify-center mb-4">
+                <div className="bg-[#c9a96e] p-3 rounded-full">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-[#0a2e5c]"
+                  >
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
                 </div>
-              </TabsContent>
-            ))}
-          </Tabs>
+              </div>
+              <h3 className="text-4xl font-bold text-white mb-2">25,000+</h3>
+              <p className="text-gray-300">عميل نشط</p>
+            </motion.div>
+
+            {/* Statistic Card 2 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isTestimonialsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="bg-[#1a4980] p-6 rounded-lg text-center"
+            >
+              <div className="flex justify-center mb-4">
+                <div className="bg-[#c9a96e] p-3 rounded-full">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-[#0a2e5c]"
+                  >
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                  </svg>
+                </div>
+              </div>
+              <h3 className="text-4xl font-bold text-white mb-2">15</h3>
+              <p className="text-gray-300">فرع في الكويت</p>
+            </motion.div>
+
+            {/* Statistic Card 3 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isTestimonialsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="bg-[#1a4980] p-6 rounded-lg text-center"
+            >
+              <div className="flex justify-center mb-4">
+                <div className="bg-[#c9a96e] p-3 rounded-full">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-[#0a2e5c]"
+                  >
+                    <path d="M12 2v20"></path>
+                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                  </svg>
+                </div>
+              </div>
+              <h3 className="text-4xl font-bold text-white mb-2">80 مليون</h3>
+              <p className="text-gray-300">دينار كويتي إجمالي الأصول</p>
+            </motion.div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+            {/* Statistic Card 4 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isTestimonialsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="bg-[#1a4980] p-6 rounded-lg text-center"
+            >
+              <div className="flex justify-center mb-4">
+                <div className="bg-[#c9a96e] p-3 rounded-full">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-[#0a2e5c]"
+                  >
+                    <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"></path>
+                  </svg>
+                </div>
+              </div>
+              <h3 className="text-4xl font-bold text-white mb-2">98%</h3>
+              <p className="text-gray-300">نسبة رضا العملاء</p>
+            </motion.div>
+
+            {/* Statistic Card 5 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isTestimonialsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="bg-[#1a4980] p-6 rounded-lg text-center"
+            >
+              <div className="flex justify-center mb-4">
+                <div className="bg-[#c9a96e] p-3 rounded-full">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-[#0a2e5c]"
+                  >
+                    <circle cx="12" cy="8" r="7"></circle>
+                    <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <h3 className="text-4xl font-bold text-white mb-2">60+</h3>
+              <p className="text-gray-300">سنة من الخبرة</p>
+            </motion.div>
+          </div>
         </motion.div>
       </section>
 
@@ -319,7 +436,7 @@ useEffect(()=>{
                 initial={{ opacity: 0, y: 20 }}
                 animate={isPartnersInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white p-4 rounded-lg flex items-center justify-center"
+                className="p-4 rounded-lg flex items-center justify-center"
               >
                 <Image
                   src={partner.logo || "/placeholder.svg"}
@@ -553,15 +670,15 @@ useEffect(()=>{
             </div>
 
             <div className="md:w-1/2 flex justify-center">
-            <Image
+            <img
                 src="/appstore2.png"
                 alt="Mobile App"
                 width={200}
                 height={400}
                 className="h-80 object-contain"
               />
-               <Image
-              src="/appstore2.png"
+               <img
+              src="/google-play-badge.png"
               alt="Mobile App"
               width={200}
               height={400}
@@ -621,7 +738,7 @@ useEffect(()=>{
         </div>
       )}
           {isloading && <Loader/>}
-          <LiveChatWidget license="19131098"/>
+          <LiveChatWidget license="19131098"   visibility="maximized"/>
 
     </main>
   )
