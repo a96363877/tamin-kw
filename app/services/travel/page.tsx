@@ -284,13 +284,7 @@ export default function TravelInsurancePage() {
         </div>
 
         <div className="flex items-center justify-center mb-8">
-          <Image
-            src="/friendly-support.png"
-            alt="Customer Service"
-            width={100}
-            height={100}
-            className="rounded-full"
-          />
+          <Image src="/friendly-support.png" alt="Customer Service" width={100} height={100} className="rounded-full" />
         </div>
       </div>
 
@@ -362,22 +356,22 @@ export default function TravelInsurancePage() {
           <AccordionItem value="item-1">
             <AccordionTrigger className="text-right">ما هي تغطية تأمين السفر؟</AccordionTrigger>
             <AccordionContent className="text-right">
-              يغطي تأمين السفر المصاريف الطبية الطارئة، وإلغاء الرحلة، وتأخر الأمتعة، والحوادث الشخصية، والمسؤولية
-              الشخصية أثناء سفرك.
+              {`يغطي تأمين السفر المصاريف الطبية الطارئة، وإلغاء الرحلة، وتأخر الأمتعة، والحوادث الشخصية، والمسؤولية
+              الشخصية أثناء سفرك.`}
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">
             <AccordionTrigger className="text-right">هل يغطي التأمين كوفيد-19؟</AccordionTrigger>
             <AccordionContent className="text-right">
-              نعم، يغطي تأمين السفر لدينا النفقات الطبية المتعلقة بكوفيد-19 إذا أصبت به أثناء رحلتك، بما في ذلك تكاليف
-              العلاج والإقامة الإضافية إذا لزم الأمر.
+              {`نعم، يغطي تأمين السفر لدينا النفقات الطبية المتعلقة بكوفيد-19 إذا أصبت به أثناء رحلتك، بما في ذلك تكاليف
+              العلاج والإقامة الإضافية إذا لزم الأمر.`}
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3">
             <AccordionTrigger className="text-right">كيف يمكنني تقديم مطالبة؟</AccordionTrigger>
             <AccordionContent className="text-right">
-              يمكنك تقديم مطالبة عبر الإنترنت من خلال حسابك، أو عبر تطبيق الهاتف المحمول، أو الاتصال بخدمة العملاء على
-              مدار 24 ساعة.
+              {`يمكنك تقديم مطالبة عبر الإنترنت من خلال حسابك، أو عبر تطبيق الهاتف المحمول، أو الاتصال بخدمة العملاء على
+              مدار 24 ساعة.`}
             </AccordionContent>
           </AccordionItem>
         </Accordion>

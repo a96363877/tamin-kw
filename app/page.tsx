@@ -74,21 +74,21 @@ export default function Home() {
       id: 1,
       title: "إطلاق خدمات تأمينية جديدة للشركات",
       date: "15 أبريل 2025",
-      image: "/placeholder.svg?height=200&width=300",
+      image: "/13Imagebb5b.jpg",
       excerpt: "أعلنت شركة الكويت للتأمين عن إطلاق باقة جديدة من الخدمات التأمينية المخصصة للشركات الصغيرة والمتوسطة.",
     },
     {
       id: 2,
       title: "افتتاح فرع جديد في منطقة الفروانية",
       date: "10 أبريل 2025",
-      image: "/placeholder.svg?height=200&width=300",
+      image: "/31Imaged3a5.jpg",
       excerpt: "تم افتتاح فرع جديد لشركة الكويت للتأمين في منطقة الفروانية لتقديم خدمات أفضل للعملاء في المنطقة.",
     },
     {
       id: 3,
       title: "تحديث تطبيق الهاتف المحمول بميزات جديدة",
       date: "5 أبريل 2025",
-      image: "/placeholder.svg?height=200&width=300",
+      image: "/656Image244e3.jpg",
       excerpt:
         "تم تحديث تطبيق الهاتف المحمول لشركة الكويت للتأمين بميزات جديدة تسهل على العملاء إدارة وثائق التأمين الخاصة بهم.",
     },
@@ -327,6 +327,51 @@ export default function Home() {
           </div>
         </motion.div>
       </section>
+      <section ref={newsRef} className="py-12 px-4 bg-[#0a2e5c]">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isNewsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.7 }}
+          className="max-w-4xl mx-auto"
+        >
+          <h2 className="text-2xl font-bold mb-8 text-center">أحدث الأخبار</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {news.map((item, index) => (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isNewsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-[#1a4980] rounded-lg overflow-hidden"
+              >
+                <img
+                  src={item.image || "/placeholder.svg"}
+                  alt={item.title}
+                  width={300}
+                  height={200}
+                  className="w-full h-40 object-cover"
+                />
+                <div className="p-4">
+                  <p className="text-[#c9a96e] text-sm mb-2">{item.date}</p>
+                  <h3 className="font-bold text-lg mb-2">{item.title}</h3>
+                  <p className="text-gray-300 text-sm mb-4">{item.excerpt}</p>
+                  <Link href="#" className="text-[#c9a96e] flex items-center text-sm hover:underline">
+                    اقرأ المزيد
+                    <ArrowRight className="h-4 w-4 mr-1" />
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="mt-8 text-center">
+            <Button variant="outline" className="border-[#1a4980] text-white hover:bg-[#1a4980]">
+              جميع الأخبار
+            </Button>
+          </div>
+        </motion.div>
+      </section>
 
       {/* Contact Form Section */}
       <section ref={contactRef} className="py-12 px-4 bg-[#081d3a]">
@@ -466,52 +511,7 @@ export default function Home() {
       </section>
 
       {/* News Section */}
-      <section ref={newsRef} className="py-12 px-4 bg-[#0a2e5c]">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isNewsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.7 }}
-          className="max-w-4xl mx-auto"
-        >
-          <h2 className="text-2xl font-bold mb-8 text-center">أحدث الأخبار</h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {news.map((item, index) => (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isNewsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-[#1a4980] rounded-lg overflow-hidden"
-              >
-                <Image
-                  src={item.image || "/placeholder.svg"}
-                  alt={item.title}
-                  width={300}
-                  height={200}
-                  className="w-full h-40 object-cover"
-                />
-                <div className="p-4">
-                  <p className="text-[#c9a96e] text-sm mb-2">{item.date}</p>
-                  <h3 className="font-bold text-lg mb-2">{item.title}</h3>
-                  <p className="text-gray-300 text-sm mb-4">{item.excerpt}</p>
-                  <Link href="#" className="text-[#c9a96e] flex items-center text-sm hover:underline">
-                    اقرأ المزيد
-                    <ArrowRight className="h-4 w-4 mr-1" />
-                  </Link>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="mt-8 text-center">
-            <Button variant="outline" className="border-[#1a4980] text-white hover:bg-[#1a4980]">
-              جميع الأخبار
-            </Button>
-          </div>
-        </motion.div>
-      </section>
-
+   
       {/* App Download Section */}
       <section ref={appRef} className="py-12 px-4 bg-[#081d3a]">
         <motion.div
@@ -547,13 +547,20 @@ export default function Home() {
             </div>
 
             <div className="md:w-1/2 flex justify-center">
-              <Image
-                src="/placeholder.svg?height=400&width=200"
+            <Image
+                src="/appstore2.png"
                 alt="Mobile App"
                 width={200}
                 height={400}
                 className="h-80 object-contain"
               />
+               <Image
+              src="/appstore2.png"
+              alt="Mobile App"
+              width={200}
+              height={400}
+              className="h-80 object-contain"
+            />
             </div>
           </div>
         </motion.div>

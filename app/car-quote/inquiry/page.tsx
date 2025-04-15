@@ -130,7 +130,7 @@ export default function InquiryPage() {
                   animate={{ opacity: 1, y: 0 }}
                   className="text-red-500 text-sm text-right mt-1"
                 >
-                  هذا الحقل مطلوب
+                  {`هذا الحقل مطلوب`}
                 </motion.p>
               )}
             </div>
@@ -148,7 +148,7 @@ export default function InquiryPage() {
                       </Button>
                     </TooltipTrigger>
                     <TooltipContent align="start" className="bg-[#0a1e3c] text-white">
-                      <p>أدخل رقم البطاقة المدنية الخاص بك</p>
+                      <p>{`أدخل رقم البطاقة المدنية الخاص بك`}</p>
                     </TooltipContent>
                   </Tooltip>
                 </TooltipProvider>
@@ -184,7 +184,7 @@ export default function InquiryPage() {
                   animate={{ opacity: 1, y: 0 }}
                   className="text-red-500 text-sm text-right mt-1"
                 >
-                  يرجى إدخال بريد إلكتروني صحيح
+                  {`يرجى إدخال بريد إلكتروني صحيح`}
                 </motion.p>
               )}
             </div>
@@ -241,7 +241,7 @@ export default function InquiryPage() {
                       d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                     ></path>
                   </svg>
-                  جاري الإرسال...
+                  {`جاري الإرسال...`}
                 </div>
               ) : (
                 "إرسال"

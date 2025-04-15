@@ -13,13 +13,10 @@ export default function Footer() {
       <div className="container mx-auto px-4 py-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-right">
           {/* Column 1 - About */}
-          <div>
+          <div dir="rtl">
             <div className="flex items-center mb-6">
-              <Image src="/placeholder.svg?height=50&width=50" alt="KIC Logo" width={50} height={50} className="ml-3" />
-              <div>
-                <h3 className="font-bold text-lg">شركة الكويت للإستثمار</h3>
-                <p className="text-xs text-gray-400">KUWAIT INVESTMENT COMPANY</p>
-              </div>
+              <Image src="/next.svg" alt="KIC Logo" width={180} height={90} className="ml-3" />
+             
             </div>
             <p className="text-sm text-gray-300 mb-4">
               شركة الكويت للإستثمار هي شركة استثمارية رائدة في الكويت، تأسست عام 1961، وتقدم مجموعة متكاملة من الخدمات
