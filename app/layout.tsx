@@ -5,6 +5,7 @@ import "./globals.css"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { Toaster } from "@/components/toaster"
+import { LiveChatWidget } from '@livechat/widget-react'
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -28,6 +29,7 @@ export default function RootLayout({
           <Footer />
         </div>
         <Toaster />
+      <LiveChatWidget license="19131098"/>
       </body>
     </html>
   )

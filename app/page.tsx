@@ -112,7 +112,7 @@ const [isloading, setLoading]=useState(true)
 useEffect(()=>{
   setTimeout(() => {
     setLoading(false)
-  }, 4000);
+  }, 2500);
 },[])
   return (
     <main className="flex min-h-screen flex-col bg-[#0a2e5c] text-white">

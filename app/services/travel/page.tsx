@@ -136,13 +136,13 @@ export default function TravelInsurancePage() {
     {
       id: "family",
       title: "تأمين حماية العائلة والصحة",
-      image: "/placeholder.svg?key=xf080",
+      image: "/178Image.jpg",
       description: "احمي أحبائك عندما تكون بعيداً",
     },
     {
       id: "term",
       title: "الحماية على المدى البعيد (TERM)",
-      image: "/placeholder.svg?key=ojqdk",
+      image: "/178Imagea784.jpg",
       description: "احمي أحبائك عندما تكون بعيداً",
     },
   ]
@@ -225,7 +225,7 @@ export default function TravelInsurancePage() {
         <div className="space-y-4">
           {otherProducts.map((product) => (
             <div key={product.id} className="relative rounded-lg overflow-hidden">
-              <Image
+              <img
                 src={product.image || "/placeholder.svg"}
                 alt={product.title}
                 width={300}
@@ -289,7 +289,7 @@ export default function TravelInsurancePage() {
       </div>
 
       {/* Footer */}
-      <div className="bg-[#0a2e5c] text-white p-4">
+      <div className="bg-[#0a2e5c] text-white p-4" dir="rtl">
         <div className="flex justify-center mb-4">
           <Button className="bg-[#c9a96e] hover:bg-[#b89355] text-white">منتجات وخدمات</Button>
         </div>
