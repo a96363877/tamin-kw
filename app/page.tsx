@@ -62,15 +62,45 @@ const [isloading, setLoading]=useState(true)
     },
   ]
 
-  const partners = [
-    { id: 1, name: "GIG", logo: "/vercel.svg" },
-    { id: 2, name: " 2", logo: "/logo.png" },
-    { id: 3, name: " 3", logo: "/" },
-    { id: 4, name: " 4", logo: "/" },
-    { id: 5, name: " 5", logo: "/" },
-    { id: 6, name: " 6", logo: "/" },
-  ]
 
+  const benefits = [
+    {
+      id: 1,
+      title: "تغطية شاملة",
+      icon: "🛡️",
+      description: "نقدم تغطية تأمينية شاملة لجميع احتياجاتك بأسعار تنافسية",
+    },
+    {
+      id: 2,
+      title: "خدمة عملاء متميزة",
+      icon: "👨‍💼",
+      description: "فريق خدمة عملاء محترف متاح على مدار الساعة للرد على استفساراتك",
+    },
+    {
+      id: 3,
+      title: "مطالبات سريعة",
+      icon: "⚡",
+      description: "نعالج المطالبات بسرعة وكفاءة لضمان حصولك على التعويض في أسرع وقت",
+    },
+    {
+      id: 4,
+      title: "تأمين رقمي",
+      icon: "📱",
+      description: "إدارة وثائق التأمين الخاصة بك بسهولة من خلال منصتنا الرقمية",
+    },
+    {
+      id: 5,
+      title: "عروض خاصة",
+      icon: "🎁",
+      description: "استفد من العروض والخصومات الخاصة على مختلف منتجات التأمين",
+    },
+    {
+      id: 6,
+      title: "حلول مخصصة",
+      icon: "✅",
+      description: "نقدم حلول تأمينية مخصصة تناسب احتياجاتك الشخصية والعائلية",
+    },
+  ]
   const news = [
     {
       id: 1,
@@ -419,7 +449,7 @@ useEffect(()=>{
         </motion.div>
       </section>
 
-      {/* Partners Section */}
+      {/* Benefits Section */}
       <section ref={partnersRef} className="py-12 px-4 bg-[#0a2e5c]">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -427,24 +457,21 @@ useEffect(()=>{
           transition={{ duration: 0.7 }}
           className="max-w-4xl mx-auto"
         >
-          <h2 className="text-2xl font-bold mb-8 text-center">شركاؤنا</h2>
+          <h2 className="text-2xl font-bold mb-2 text-center">لماذا تختارنا</h2>
+          <p className="text-gray-300 text-center mb-8">مميزات تجعلنا الاختيار الأفضل لاحتياجات التأمين الخاصة بك</p>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-            {partners.map((partner, index) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {benefits.map((benefit, index) => (
               <motion.div
-                key={partner.id}
+                key={benefit.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={isPartnersInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="p-4 rounded-lg flex items-center justify-center"
+                className="bg-[#1a4980] p-6 rounded-lg text-center hover:bg-[#2a5990] transition-colors"
               >
-                <Image
-                  src={partner.logo || "/placeholder.svg"}
-                  alt={partner.name}
-                  width={120}
-                  height={60}
-                  className="h-12 object-contain"
-                />
+                <div className="text-4xl mb-4">{benefit.icon}</div>
+                <h3 className="text-lg font-bold mb-2">{benefit.title}</h3>
+                <p className="text-sm text-gray-300">{benefit.description}</p>
               </motion.div>
             ))}
           </div>
