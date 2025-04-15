@@ -74,7 +74,7 @@ export default function Header() {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-1 space-x-reverse">
+        <nav className="hidden md:flex items-center space-x-1 space-x-reverse text-white">
           {mainMenuItems.map((item, index) => (
             <DropdownMenu key={index}>
               <DropdownMenuTrigger asChild>
@@ -95,13 +95,11 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Button variant="ghost" size="icon" className="text-white">
  <Link href="/" className="flex items-center">
-            <Image src="/next.svg" alt="KIC Logo" width={60} height={60} className="ml-2" />
+            <Image src="/next.svg" alt="KIC Logo" width={160} height={160} className="ml-2" />
            
           </Link>
 
-          </Button>
           <Button variant="ghost" size="icon" className="text-white hidden md:flex">
             <User className="h-5 w-5" />
           </Button>

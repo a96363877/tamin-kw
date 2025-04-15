@@ -27,12 +27,12 @@ export default function Home() {
   const isAppInView = useInView(appRef, { once: true, amount: 0.3 })
 
   const services = [
-    { id: "travel", name: "السفر", icon: "✈️" },
-    { id: "cars", name: "السيارات", icon: "🚗" },
-    { id: "health", name: "حماية الحياة والصحة", icon: "❤️" },
-    { id: "property", name: "المنازل", icon: "🏠" },
-    { id: "mobile-homes", name: "ثابت ومتنقل سكني", icon: "🏘️" },
-    { id: "medical", name: "الصحة والطبية", icon: "🩺" },
+    { id: "travel", name: "السفر", icon: "1" },
+    { id: "cars", name: "السيارات", icon: "2" },
+    { id: "health", name: "حماية الحياة والصحة", icon: "3" },
+    { id: "property", name: "المنازل", icon: "4" },
+    { id: "mobile-homes", name: "ثابت ومتنقل سكني", icon: "5" },
+    { id: "medical", name: "الصحة والطبية", icon: "6" },
   ]
 
   const testimonials = [
@@ -111,26 +111,7 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col bg-[#0a2e5c] text-white">
-      {/* Header */}
-      <header className="flex items-center justify-between p-4">
-        <div className="flex items-center">
-          <button className="text-white mr-4" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            <Menu className="h-6 w-6" />
-          </button>
-          <button className="text-white">
-            <Search className="h-6 w-6" />
-          </button>
-        </div>
-        <div className="flex items-center">
-          <Image
-            src="/sailing-assurance.png"
-            alt="Kuwait Insurance Logo"
-            width={120}
-            height={40}
-            className="h-10 object-contain"
-          />
-        </div>
-      </header>
+  
 
       {/* Hero Section */}
       <motion.section
@@ -144,8 +125,8 @@ export default function Home() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.5 }}
         >
-          <Image
-            src="/dapper-cartoon-man.png"
+          <img
+            src="/12MascotImage.png"
             alt="Insurance Character"
             width={300}
             height={300}
@@ -177,7 +158,7 @@ export default function Home() {
             <motion.div key={service.id} variants={item}>
               <Link href={`/services/${service.id}`}>
                 <div className="border border-[#1a4980] rounded-lg p-4 flex flex-col items-center justify-center text-center h-24 hover:bg-[#1a4980] transition-colors">
-                  <span className="text-2xl mb-2">{service.icon}</span>
+                  <img src={`/${service.icon}.png`} width={50}/>
                   <span className="text-sm">{service.name}</span>
                 </div>
               </Link>
@@ -185,7 +166,7 @@ export default function Home() {
           ))}
         </div>
         <motion.div variants={item} className="mt-6 flex justify-center">
-          <Button variant="outline" className="border-[#1a4980] text-white hover:bg-[#1a4980]">
+          <Button variant="secondary" className="border-[#1a4980]  hover:bg-[#1a4980]">
             <span>أكثر</span>
             <ChevronRight className="h-4 w-4 mr-2" />
           </Button>
