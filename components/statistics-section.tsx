@@ -1,4 +1,5 @@
-import { Button } from "@/components/ui/button"
+import { Button } from "./ui/button";
+
 export default function StatisticsSection() {
   return (
     <section className="p-6 bg-[#0a1e3c] text-center border-t border-blue-900">
@@ -16,7 +17,7 @@ export default function StatisticsSection() {
           <p className="text-sm text-gray-400">موظف</p>
         </div>
         <div className="text-center">
-          <p className="text-[#c9a96e] text-3xl font-bold">2</p>
+          <p className="text-[#c9a96e] text-3xl font-bold">22</p>
           <p className="text-sm text-gray-400">فرع</p>
         </div>
       </div>

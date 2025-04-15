@@ -5,10 +5,10 @@ import { Input } from "@/components/ui/input"
 import { Facebook, Twitter, Instagram, Linkedin, Youtube, ArrowRight } from "lucide-react"
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear()
+//  const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-[#061631] text-white">
+    <footer className="bg-[#061631] text-white"  dir="rtl">
       {/* Main Footer */}
       <div className="container mx-auto px-4 py-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-right">
@@ -147,7 +147,7 @@ export default function Footer() {
       <div className="bg-[#051124] py-4">
         <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-gray-400 text-center md:text-right order-2 md:order-1 mt-3 md:mt-0">
-            © {currentYear} شركة الكويت للإستثمار. جميع الحقوق محفوظة.
+            © {2025} شركة الكويت للإستثمار. جميع الحقوق محفوظة.
           </p>
           <div className="flex space-x-4 space-x-reverse order-1 md:order-2">
             {["سياسة الخصوصية", "الشروط والأحكام", "سياسة أمن المعلومات", "خريطة الموقع"].map((item, index) => (

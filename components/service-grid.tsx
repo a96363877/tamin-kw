@@ -1,3 +1,5 @@
+
+import * as React from 'react'
 import { CreditCard, BarChart3, Building2, Car, Briefcase, Users } from "lucide-react"
 
 export default function ServiceGrid() {
@@ -13,7 +15,7 @@ export default function ServiceGrid() {
   return (
     <div className="grid grid-cols-3 gap-4 p-4 border-b border-blue-900">
       {services.map((service, index) => (
-        <div key={index} className="flex flex-col items-center justify-center p-3 text-center">
+        <div key={index} className="flex flex-col  hover:drop-shadow-xl   items-center justify-center p-3 text-center ">
           <div className="bg-blue-900/50 p-3 rounded-full mb-2">{service.icon}</div>
           <span className="text-xs">{service.name}</span>
         </div>

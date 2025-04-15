@@ -40,7 +40,7 @@ export default function Header() {
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-1">
             <Phone className="h-3 w-3 text-[#c9a96e]" />
-            <span>+965 1234 5678</span>
+            <span>+965 9888 7777</span>
           </div>
           <div className="flex items-center gap-1">
             <Mail className="h-3 w-3 text-[#c9a96e]" />
@@ -69,13 +69,8 @@ export default function Header() {
           <button className="md:hidden text-white mr-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
-          <Link href="/" className="flex items-center">
-            <Image src="/placeholder.svg?height=40&width=40" alt="KIC Logo" width={40} height={40} className="ml-2" />
-            <div className="text-right">
-              <p className="text-sm font-bold">شركة الكويت للإستثمار</p>
-              <p className="text-xs text-gray-400">KUWAIT INVESTMENT COMPANY</p>
-            </div>
-          </Link>
+<Search className="h-5 w-5 text-white mx-1" />
+         
         </div>
 
         {/* Desktop Navigation */}
@@ -101,7 +96,11 @@ export default function Header() {
 
         <div className="flex items-center gap-2">
           <Button variant="ghost" size="icon" className="text-white">
-            <Search className="h-5 w-5" />
+ <Link href="/" className="flex items-center">
+            <Image src="/next.svg" alt="KIC Logo" width={60} height={60} className="ml-2" />
+           
+          </Link>
+
           </Button>
           <Button variant="ghost" size="icon" className="text-white hidden md:flex">
             <User className="h-5 w-5" />
