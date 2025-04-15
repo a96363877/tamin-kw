@@ -21,17 +21,15 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl">
       <body className={inter.className}>
-          <div className="flex flex-col min-h-screen">
-            <Header />
-            <div className="flex-grow">{children}</div>
-            
-<Footer/>
-          </div>
-          <Toaster />
+        <div className="flex flex-col min-h-screen">
+          <Header />
+          <div className="flex-grow">{children}</div>
+
+          <Footer />
+        </div>
+        <Toaster />
       </body>
     </html>
   )
 }
 
-
-import './globals.css'

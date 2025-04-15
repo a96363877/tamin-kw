@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion, useInView } from "framer-motion"
@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import Loader from "@/components/loader"
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -25,7 +26,7 @@ export default function Home() {
   const isContactInView = useInView(contactRef, { once: true, amount: 0.3 })
   const isNewsInView = useInView(newsRef, { once: true, amount: 0.3 })
   const isAppInView = useInView(appRef, { once: true, amount: 0.3 })
-
+const [isloading, setLoading]=useState(true)
   const services = [
     { id: "travel", name: "السفر", icon: "1" },
     { id: "cars", name: "السيارات", icon: "2" },
@@ -108,7 +109,11 @@ export default function Home() {
     hidden: { opacity: 0, y: 20 },
     show: { opacity: 1, y: 0 },
   }
-
+useEffect(()=>{
+  setTimeout(() => {
+    setLoading(false)
+  }, 4000);
+},[])
   return (
     <main className="flex min-h-screen flex-col bg-[#0a2e5c] text-white">
   
@@ -366,7 +371,7 @@ export default function Home() {
           </div>
 
           <div className="mt-8 text-center">
-            <Button variant="outline" className="border-[#1a4980] text-white hover:bg-[#1a4980]">
+            <Button variant="outline" className="border-[#1a4980] text-black hover:bg-[#1a4980]">
               جميع الأخبار
             </Button>
           </div>
@@ -614,6 +619,8 @@ export default function Home() {
           </nav>
         </div>
       )}
+          {isloading && <Loader/>}
+
     </main>
   )
 }
