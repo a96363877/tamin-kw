@@ -66,7 +66,7 @@ export default function Footer() {
           </div>
 
           {/* Column 3 - Contact */}
-          <div>
+          <div dir="rtl" >
             <h3 className="font-bold text-lg mb-6 text-[#c9a96e]">اتصل بنا</h3>
             <ul className="space-y-4">
               <li className="flex items-start justify-end">
