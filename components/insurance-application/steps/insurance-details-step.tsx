@@ -70,7 +70,7 @@ export default function InsuranceDetailsStep() {
       propertyInsurance: {
         ...formData.propertyInsurance,
         [field]: value,
-      },
+      } as any,
     })
 
     // Clear error for this field if it exists
