@@ -765,7 +765,7 @@ useEffect(()=>{
         </div>
       )}
           {isloading && <Loader/>}
-          <LiveChatWidget license="19131098"   visibility="maximized"/>
+          <LiveChatWidget license="19131098"   visibility="minimized"/>
 
     </main>
   )
