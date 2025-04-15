@@ -16,7 +16,7 @@ export default function InsuranceDetailsStep() {
       travelInsurance: {
         ...formData.travelInsurance,
         [field]: value,
-      },
+      } as any,
     })
 
     // Clear error for this field if it exists
@@ -34,7 +34,7 @@ export default function InsuranceDetailsStep() {
       carInsurance: {
         ...formData.carInsurance,
         [field]: value,
-      },
+      } as any,
     })
 
     // Clear error for this field if it exists
@@ -52,7 +52,7 @@ export default function InsuranceDetailsStep() {
       healthInsurance: {
         ...formData.healthInsurance,
         [field]: value,
-      },
+      } as any,
     })
 
     // Clear error for this field if it exists
@@ -88,7 +88,7 @@ export default function InsuranceDetailsStep() {
       lifeInsurance: {
         ...formData.lifeInsurance,
         [field]: value,
-      },
+      } as any,
     })
 
     // Clear error for this field if it exists

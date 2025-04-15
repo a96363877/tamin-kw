@@ -93,7 +93,7 @@ export default function InsuranceApplicationForm() {
           </span>
           <span className="text-sm font-medium text-[#c9a96e]">{progress.toFixed(0)}% مكتمل</span>
         </div>
-        <Progress value={progress} className="h-2" />
+        <Progress value={progress} className="h-2" indicatorClassName="bg-[#c9a96e]" />
       </div>
 
       {/* Steps indicator */}
