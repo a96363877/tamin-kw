@@ -162,12 +162,16 @@ export default function TravelInsurancePage() {
     
       {/* Action Buttons */}
       <div className="p-4 space-y-3">
+        <Link href={'/travel-form'}>
         <Button className="w-full bg-[#c9a96e] hover:bg-[#b89355] text-white py-6 rounded-md text-lg">
           اشتري الآن
         </Button>
+        </Link>
+        <Link href={'/travel-form'}>
         <Button className="w-full bg-[#c9a96e] hover:bg-[#b89355] text-white py-6 rounded-md text-lg">
           قدم مطالبة
         </Button>
+        </Link>
         <Button className="w-full bg-[#c9a96e] hover:bg-[#b89355] text-white py-6 rounded-md text-lg">اتصل بنا</Button>
 
         <div className="mt-4 border border-[#c9a96e] rounded-md">
@@ -350,7 +354,7 @@ export default function TravelInsurancePage() {
         </div>
       </div>
 
-      {/* FAQ Accordion */}
+      {/* FAQ Accordion */} 
       <div className="p-4 mt-6">
         <h3 className="text-xl font-bold mb-4 text-[#0a2e5c]">الأسئلة الشائعة</h3>
         <Accordion type="single" collapsible className="w-full">

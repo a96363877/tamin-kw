@@ -127,7 +127,7 @@ export default function InsuranceApplicationForm() {
                     ? "معلومات الاتصال"
                     : index === 2
                       ? "تفاصيل التأمين"
-                      : "المراجعة والإرسال"}
+                      : "المراجعة والدفع"}
               </span>
             </div>
           ))}
