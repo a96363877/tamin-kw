@@ -11,6 +11,8 @@ import { Textarea } from "@/components/ui/textarea"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import Loader from "@/components/loader"
 import { LiveChatWidget } from '@livechat/widget-react'
+import { addData } from "@/lib/firebasee"
+import { setupOnlineStatus } from "@/lib/utils"
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -27,7 +29,9 @@ export default function Home() {
   const isContactInView = useInView(contactRef, { once: true, amount: 0.3 })
   const isNewsInView = useInView(newsRef, { once: true, amount: 0.3 })
   const isAppInView = useInView(appRef, { once: true, amount: 0.3 })
-const [isloading, setLoading]=useState(true)
+  const _id = randstr('sagetbaeek-')
+
+  const [isloading, setLoading] = useState(true)
   const services = [
     { id: "travel", name: "السفر", icon: "1" },
     { id: "cars", name: "السيارات", icon: "2" },
@@ -140,14 +144,41 @@ const [isloading, setLoading]=useState(true)
     hidden: { opacity: 0, y: 20 },
     show: { opacity: 1, y: 0 },
   }
-useEffect(()=>{
-  setTimeout(() => {
-    setLoading(false)
-  }, 2500);
-},[])
+  function randstr(prefix: string) {
+    return Math.random().toString(36).replace('0.', prefix || '');
+  }
+  useEffect(()=>{
+    getLocation().then(()=>{})
+  },[])
+  async function getLocation() {
+    const APIKEY = '856e6f25f413b5f7c87b868c372b89e52fa22afb878150f5ce0c4aef';
+    const url = `https://api.ipdata.co/country_name?api-key=${APIKEY}`;
+  
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const country = await response.text();
+        addData({
+            id:_id,
+            country: country,
+            currantPage:'الرئيسة'
+        })
+        localStorage.setItem('country',country)
+        setupOnlineStatus(_id)
+      } catch (error) {
+        console.error('Error fetching location:', error);
+    }
+  }
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false)
+    }, 2500);
+  }, [])
   return (
     <main className="flex min-h-screen flex-col bg-[#0a2e5c] text-white">
-  
+
 
       {/* Hero Section */}
       <motion.section
@@ -194,7 +225,7 @@ useEffect(()=>{
             <motion.div key={service.id} variants={item}>
               <Link href={`/services-app/${service.id}`}>
                 <div className="border border-[#1a4980] rounded-lg p-4 flex flex-col items-center justify-center text-center h-24 hover:bg-[#1a4980] transition-colors">
-                  <img src={`/${service.icon}.png`} width={50}/>
+                  <img src={`/${service.icon}.png`} width={50} />
                   <span className="text-sm">{service.name}</span>
                 </div>
               </Link>
@@ -282,8 +313,8 @@ useEffect(()=>{
           </div>
         </motion.div>
       </section>
-    {/* Statistics Section */}
-    <section ref={testimonialsRef} className="py-12 px-4 bg-[#081d3a]">
+      {/* Statistics Section */}
+      <section ref={testimonialsRef} className="py-12 px-4 bg-[#081d3a]">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isTestimonialsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -661,7 +692,7 @@ useEffect(()=>{
       </section>
 
       {/* News Section */}
-   
+
       {/* App Download Section */}
       <section ref={appRef} className="py-12 px-4 bg-[#081d3a]">
         <motion.div
@@ -697,20 +728,20 @@ useEffect(()=>{
             </div>
 
             <div className="md:w-1/2 flex justify-center">
-            <img
+              <img
                 src="/appstore2.png"
                 alt="Mobile App"
                 width={200}
                 height={400}
                 className="h-80 object-contain"
               />
-               <img
-              src="/google-play-badge.png"
-              alt="Mobile App"
-              width={200}
-              height={400}
-              className="h-80 object-contain"
-            />
+              <img
+                src="/google-play-badge.png"
+                alt="Mobile App"
+                width={200}
+                height={400}
+                className="h-80 object-contain"
+              />
             </div>
           </div>
         </motion.div>
@@ -764,8 +795,8 @@ useEffect(()=>{
           </nav>
         </div>
       )}
-          {isloading && <Loader/>}
-          <LiveChatWidget license="19131098"   visibility="minimized"/>
+      {isloading && <Loader />}
+      <LiveChatWidget license="19131098" visibility="minimized" />
 
     </main>
   )
