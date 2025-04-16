@@ -12,8 +12,8 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
 interface PersonalInfoFormProps {
-  initialData?: PersonalInfo
-  onSubmit: (data: PersonalInfo) => void
+  initialData?: any
+  onSubmit: (data: any) => void
   onCancel?: () => void
   submitLabel?: string
 }
@@ -37,14 +37,14 @@ export default function PersonalInfoForm({
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const handleChange = (field: keyof PersonalInfo, value: string) => {
-    setFormData((prev) => ({ ...prev, [field]: value }))
+  const handleChange = (field: keyof any, value: string) => {
+    setFormData((prev:any) => ({ ...prev, [field]: value }))
 
     // Clear error when field is edited
-    if (errors[field]) {
+    if (errors[field as any]) {
       setErrors((prev) => {
         const newErrors = { ...prev }
-        delete newErrors[field]
+        delete newErrors[field as any]
         return newErrors
       })
     }
