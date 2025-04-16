@@ -44,7 +44,7 @@ export default function Footer() {
           {/* Column 2 - Quick Links */}
           <div>
             <h3 className="font-bold text-lg mb-6 text-[#c9a96e]">روابط سريعة</h3>
-            <ul className="space-y-3">
+            <ul className="space-y-3" dir="rtl">
               {[
                 "الخدمات المصرفية",
                 "الاستثمار",
@@ -65,40 +65,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3 - Contact */}
-          <div dir="rtl" >
-            <h3 className="font-bold text-lg mb-6 text-[#c9a96e]">اتصل بنا</h3>
-            <ul className="space-y-4">
-              <li className="flex items-start justify-end">
-                <div className="text-right">
-                  <p className="text-sm font-semibold">المقر الرئيسي</p>
-                  <p className="text-sm text-gray-300">شارع الشهداء، برج الحمراء، الكويت</p>
-                </div>
-                <div className="bg-[#c9a96e] p-2 rounded-md ml-3 mt-1">
-                  <Image src="/placeholder.svg?height=16&width=16" alt="Location" width={16} height={16} />
-                </div>
-              </li>
-              <li className="flex items-start justify-end">
-                <div className="text-right">
-                  <p className="text-sm font-semibold">البريد الإلكتروني</p>
-                  <p className="text-sm text-gray-300">info@kic.com.kw</p>
-                </div>
-                <div className="bg-[#c9a96e] p-2 rounded-md ml-3 mt-1">
-                  <Image src="/placeholder.svg?height=16&width=16" alt="Email" width={16} height={16} />
-                </div>
-              </li>
-              <li className="flex items-start justify-end">
-                <div className="text-right">
-                  <p className="text-sm font-semibold">رقم الهاتف</p>
-                  <p className="text-sm text-gray-300">+965 1234 5678</p>
-                </div>
-                <div className="bg-[#c9a96e] p-2 rounded-md ml-3 mt-1">
-                  <Image src="/placeholder.svg?height=16&width=16" alt="Phone" width={16} height={16} />
-                </div>
-              </li>
-            </ul>
-          </div>
-
+        
           {/* Column 4 - Newsletter */}
           <div>
             <h3 className="font-bold text-lg mb-6 text-[#c9a96e]">النشرة الإخبارية</h3>
