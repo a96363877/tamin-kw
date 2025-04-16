@@ -169,10 +169,9 @@ export default function PropertyInsurancePage() {
     <div className="min-h-screen bg-white text-[#0a2e5c]">
       {/* Hero Section */}
       <div className="relative h-64 bg-[#0a2e5c]">
-        <Image
+        <img
           src="/placeholder.svg?height=400&width=800&query=modern house"
           alt="Property Insurance"
-          fill
           className="object-cover opacity-30"
         />
         <div className="absolute inset-0 flex flex-col justify-center items-center text-white p-6">
@@ -182,11 +181,15 @@ export default function PropertyInsurancePage() {
         </div>
       </div>
 
+   
       {/* Action Buttons */}
       <div className="p-4 space-y-3">
+      <Link href="/apply?type=property">
         <Button className="w-full bg-[#c9a96e] hover:bg-[#b89355] text-white py-6 rounded-md text-lg">
           اشتري الآن
         </Button>
+        </Link>
+
         <Link href="/apply?type=property">
           <Button className="w-full bg-[#c9a96e] hover:bg-[#b89355] text-white py-6 rounded-md text-lg">
             تقديم طلب
