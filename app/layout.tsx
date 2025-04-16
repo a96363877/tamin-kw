@@ -5,7 +5,16 @@ import "./globals.css"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { Toaster } from "@/components/toaster"
-
+import { Viewport } from "next/dist/lib/metadata/types/extra-types"
+ 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  // Also supported but less commonly used
+  // interactiveWidget: 'resizes-visual',
+}
 const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Kuwait Investment Company",
@@ -20,14 +29,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ar" dir="rtl">
-      <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-  </head>
       <body className={inter.className}>
         <div className="flex flex-col min-h-screen">
           <Header />
           <div className="flex-grow">{children}</div>
-
           <Footer />
         </div>
         <Toaster />
