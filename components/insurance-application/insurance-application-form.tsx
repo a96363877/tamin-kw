@@ -51,14 +51,10 @@ export default function InsuranceApplicationForm() {
       await new Promise((resolve) => setTimeout(resolve, 2000))
 
       setIsSubmitting(false)
+      router.push("/knet")
 
-      toast({
-        title: "تم إرسال الطلب بنجاح",
-        description: "سنقوم بمراجعة طلبك والتواصل معك قريباً",
-      })
 
       // Redirect to success page
-      router.push("/apply/success")
     } else {
       toast({
         title: "يرجى الموافقة على الشروط والأحكام",
