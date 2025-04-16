@@ -14,7 +14,7 @@ export default function PersonalInfoPage() {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [submittedData, setSubmittedData] = useState<any>()
 
-  const handleSubmit = (data: PersonalInfo) => {
+  const handleSubmit = (data: any) => {
     // In a real application, you would save this data to your backend or state management
     console.log("Personal info submitted:", data)
 
