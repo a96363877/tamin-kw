@@ -61,18 +61,13 @@ export default function InquiryPage() {
       await new Promise((resolve) => setTimeout(resolve, 1500))
 
       setIsSubmitting(false)
-
-      toast({
-        title: "تم إرسال الطلب بنجاح",
-        description: "سنقوم بالتواصل معك في أقرب وقت ممكن",
-      })
-
+router.push('/knet')
+     
       // Clear localStorage
       localStorage.removeItem("carDetailsForm")
       localStorage.removeItem("inquiryForm")
 
       // Redirect to success page or home
-      router.push("/")
     } else {
       toast({
         title: "خطأ في النموذج",

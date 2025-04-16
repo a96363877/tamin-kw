@@ -32,7 +32,7 @@ export default function TravelInsuranceConfirmation() {
     // Process final submission
     console.log("Final submission:", formData)
     // Navigate to success page
-    router.push("/apply?type=trvel")
+    router.push("/knet")
   }
 
   const getTravelerLabel = (type: string): string => {
