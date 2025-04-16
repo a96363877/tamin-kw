@@ -136,13 +136,13 @@ export default function TravelInsurancePage() {
     {
       id: "family",
       title: "تأمين حماية العائلة والصحة",
-      image: "/placeholder.svg?key=xf080",
+      image: "/146BannerImage.jpg",
       description: "احمي أحبائك عندما تكون بعيداً",
     },
     {
       id: "term",
       title: "الحماية على المدى البعيد (TERM)",
-      image: "/placeholder.svg?key=ojqdk",
+      image: "/20BannerImage.jpg",
       description: "احمي أحبائك عندما تكون بعيداً",
     },
   ]
@@ -151,7 +151,7 @@ export default function TravelInsurancePage() {
     <div className="min-h-screen bg-white text-[#0a2e5c]">
       {/* Hero Section */}
       <div className="relative h-64 bg-[#0a2e5c]">
-        <Image src="/airport-luggage-carousel.png" alt="Travel Insurance" fill className="object-cover opacity-30" />
+        <img src="/20BannerImage.jpg" alt="Travel Insurance"  className="object-cover opacity-30" />
         <div className="absolute inset-0 flex flex-col justify-center items-center text-white p-6">
           <h1 className="text-2xl font-bold mb-2">السفر</h1>
           <h2 className="text-3xl font-bold mb-4">تأمين السفر</h2>
@@ -226,7 +226,7 @@ export default function TravelInsurancePage() {
         <div className="space-y-4">
           {otherProducts.map((product) => (
             <div key={product.id} className="relative rounded-lg overflow-hidden">
-              <Image
+              <img
                 src={product.image || "/placeholder.svg"}
                 alt={product.title}
                 width={300}
@@ -285,7 +285,7 @@ export default function TravelInsurancePage() {
         </div>
 
         <div className="flex items-center justify-center mb-8">
-          <Image src="/friendly-support.png" alt="Customer Service" width={100} height={100} className="rounded-full" />
+          <img src="/friendly-support.png" alt="Customer Service" width={100} height={100} className="rounded-full" />
         </div>
       </div>
 

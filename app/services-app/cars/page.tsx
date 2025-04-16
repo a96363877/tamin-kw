@@ -170,8 +170,10 @@ export default function CarInsurancePage() {
   return (
     <div className="min-h-screen bg-white text-[#0a2e5c]">
       {/* Hero Section */}
-      <div className="relative h-64 bg-[#0a2e5c]">
-        <Image src="/sleek-city-cruiser.png" alt="Car Insurance" fill className="object-cover opacity-30" />
+      <div className="relative bg-[#0a2e5c]">
+        <img src="/149BannerImage.jpg" alt="Car Insurance" 
+                  className="w-full h-40 object-cover opacity-30"
+                  />
         <div className="absolute inset-0 flex flex-col justify-center items-center text-white p-6">
           <h1 className="text-2xl font-bold mb-2">السيارات</h1>
           <h2 className="text-3xl font-bold mb-4">تأمين السيارات</h2>
@@ -181,16 +183,16 @@ export default function CarInsurancePage() {
 
       {/* Action Buttons */}
       <div className="p-4 space-y-3">
-        <Button className="w-full bg-[#c9a96e] hover:bg-[#b89355] text-white py-6 rounded-md text-lg">
+        <Button className="w-full my-1 bg-[#c9a96e] hover:bg-[#b89355] text-white py-6 rounded-md text-lg">
           اشتري الآن
         </Button>
         <Link href="/apply?type=car">
-          <Button className="w-full bg-[#c9a96e] hover:bg-[#b89355] text-white py-6 rounded-md text-lg">
+          <Button className="w-full my-1 bg-[#c9a96e] hover:bg-[#b89355] text-white py-6 rounded-md text-lg">
             تقديم طلب
           </Button>
         </Link>
         <Link href="/car-quote/product">
-          <Button className="w-full bg-[#c9a96e] hover:bg-[#b89355] text-white py-6 rounded-md text-lg">
+          <Button className="w-full  my-1 bg-[#c9a96e] hover:bg-[#b89355] text-white py-6 rounded-md text-lg">
             احصل على عرض سعر
           </Button>
         </Link>
@@ -252,7 +254,7 @@ export default function CarInsurancePage() {
         <div className="space-y-4">
           {otherProducts.map((product) => (
             <div key={product.id} className="relative rounded-lg overflow-hidden">
-              <Image
+              <img
                 src={product.image || "/placeholder.svg"}
                 alt={product.title}
                 width={300}
@@ -311,7 +313,7 @@ export default function CarInsurancePage() {
         </div>
 
         <div className="flex items-center justify-center mb-8">
-          <Image
+          <img
             src="/helpful-support.png"
             alt="Customer Service"
             width={100}

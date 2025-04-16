@@ -168,11 +168,11 @@ export default function HealthInsurancePage() {
     <div className="min-h-screen bg-white text-[#0a2e5c]">
       {/* Hero Section */}
       <div className="relative h-64 bg-[#0a2e5c]">
-        <Image
-          src="/placeholder.svg?height=400&width=800&query=healthcare"
+        <img
+          src="/146BannerImage.jpg"
           alt="Health Insurance"
-          fill
-          className="object-cover opacity-30"
+          className="w-full h-40 object-cover opacity-30"
+
         />
         <div className="absolute inset-0 flex flex-col justify-center items-center text-white p-6">
           <h1 className="text-2xl font-bold mb-2">الصحة</h1>
@@ -248,7 +248,7 @@ export default function HealthInsurancePage() {
         <div className="space-y-4">
           {otherProducts.map((product) => (
             <div key={product.id} className="relative rounded-lg overflow-hidden">
-              <Image
+              <img
                 src={product.image || "/placeholder.svg"}
                 alt={product.title}
                 width={300}
@@ -307,7 +307,7 @@ export default function HealthInsurancePage() {
         </div>
 
         <div className="flex items-center justify-center mb-8">
-          <Image
+          <img
             src="/placeholder.svg?height=100&width=100&query=doctor"
             alt="Customer Service"
             width={100}

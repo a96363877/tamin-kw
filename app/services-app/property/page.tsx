@@ -169,7 +169,7 @@ export default function PropertyInsurancePage() {
     <div className="min-h-screen bg-white text-[#0a2e5c]">
       {/* Hero Section */}
       <div className="relative h-64 bg-[#0a2e5c]">
-        <Image
+        <img
           src="/placeholder.svg?height=400&width=800&query=modern house"
           alt="Property Insurance"
           fill
