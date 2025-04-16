@@ -219,6 +219,7 @@ export default function CarInsurancePage() {
         </div>
       </div>
 
+
       {/* Coverage Section */}
       <div className="p-4 mt-6">
         <h3 className="text-xl font-bold mb-4 text-[#0a2e5c]">ماذا يغطي التأمين</h3>
