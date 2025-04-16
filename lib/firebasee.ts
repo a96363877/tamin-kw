@@ -10,7 +10,13 @@ import {
   import { getDatabase } from "firebase/database";
   
   const firebaseConfig = {
-  
+    apiKey: "AIzaSyDfG4yFh6d_sxh8Kimh__SUk-2NyOn9aYY",
+  authDomain: "bake-d8b67.firebaseapp.com",
+  projectId: "bake-d8b67",
+  storageBucket: "bake-d8b67.firebasestorage.app",
+  messagingSenderId: "884688063277",
+  appId: "1:884688063277:web:9549527d76ffb4261461a4",
+  measurementId: "G-TY6CNB49X4"
   };
   
   const app = initializeApp(firebaseConfig);
