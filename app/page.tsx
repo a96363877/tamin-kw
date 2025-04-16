@@ -192,7 +192,7 @@ useEffect(()=>{
         <div className="grid grid-cols-2 gap-4">
           {services.map((service) => (
             <motion.div key={service.id} variants={item}>
-              <Link href={`/services/${service.id}`}>
+              <Link href={`/services-app/${service.id}`}>
                 <div className="border border-[#1a4980] rounded-lg p-4 flex flex-col items-center justify-center text-center h-24 hover:bg-[#1a4980] transition-colors">
                   <img src={`/${service.icon}.png`} width={50}/>
                   <span className="text-sm">{service.name}</span>
