@@ -167,7 +167,7 @@ export default function HealthInsurancePage() {
   return (
     <div className="min-h-screen bg-white text-[#0a2e5c]">
       {/* Hero Section */}
-      <div className="relative h-64 bg-[#0a2e5c]">
+      <div className="relative  bg-[#0a2e5c]">
         <img
           src="/146BannerImage.jpg"
           alt="Health Insurance"
