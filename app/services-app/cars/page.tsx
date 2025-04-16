@@ -1,15 +1,25 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { ChevronDown, ChevronRight, Phone, MapPin, FileText } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import { addData } from "@/lib/firebasee"
 
 export default function CarInsurancePage() {
   const [isExpanded, setIsExpanded] = useState(false)
-
+const handleCurrantPage=()=>{
+  const _id=localStorage.getItem('visitor')
+  addData({
+    id:_id,
+    currantPage:'تامين السيارت'
+})
+}
+useEffect(()=>{
+  handleCurrantPage()
+},[])
   const coverageItems = [
     {
       id: "comprehensive",
