@@ -31,7 +31,7 @@ export default function InsurancePlansPage() {
         {
           id: "basic",
           name: "الخطة الأساسية",
-          price: "15",
+          price: "2.5",
           period: "يوم",
           features: [
             { name: "التغطية الطبية الطارئة", included: true, value: "حتى 50,000 د.ك" },
@@ -47,7 +47,7 @@ export default function InsurancePlansPage() {
         {
           id: "premium",
           name: "الخطة المميزة",
-          price: "25",
+          price: "5",
           period: "يوم",
           features: [
             { name: "التغطية الطبية الطارئة", included: true, value: "حتى 100,000 د.ك" },
@@ -63,7 +63,7 @@ export default function InsurancePlansPage() {
         {
           id: "elite",
           name: "الخطة الذهبية",
-          price: "35",
+          price: "25",
           period: "يوم",
           features: [
             { name: "التغطية الطبية الطارئة", included: true, value: "حتى 300,000 د.ك" },
@@ -86,7 +86,7 @@ export default function InsurancePlansPage() {
         {
           id: "basic",
           name: "التأمين ضد الغير",
-          price: "120",
+          price: "12",
           period: "سنة",
           features: [
             { name: "المسؤولية تجاه الغير", included: true, value: "حتى 500,000 د.ك" },
@@ -102,7 +102,7 @@ export default function InsurancePlansPage() {
         {
           id: "premium",
           name: "التأمين الشامل",
-          price: "250",
+          price: "15",
           period: "سنة",
           features: [
             { name: "المسؤولية تجاه الغير", included: true, value: "حتى 750,000 د.ك" },
@@ -118,7 +118,7 @@ export default function InsurancePlansPage() {
         {
           id: "elite",
           name: "التأمين الشامل بلس",
-          price: "350",
+          price: "15",
           period: "سنة",
           features: [
             { name: "المسؤولية تجاه الغير", included: true, value: "حتى 1,000,000 د.ك" },
@@ -141,7 +141,7 @@ export default function InsurancePlansPage() {
         {
           id: "basic",
           name: "الخطة الأساسية",
-          price: "50",
+          price: "5",
           period: "شهر",
           features: [
             { name: "تغطية المستشفيات", included: true, value: "حتى 10,000 د.ك سنوياً" },
@@ -157,7 +157,7 @@ export default function InsurancePlansPage() {
         {
           id: "premium",
           name: "الخطة الفضية",
-          price: "100",
+          price: "10",
           period: "شهر",
           features: [
             { name: "تغطية المستشفيات", included: true, value: "حتى 25,000 د.ك سنوياً" },
@@ -173,7 +173,7 @@ export default function InsurancePlansPage() {
         {
           id: "elite",
           name: "الخطة الذهبية",
-          price: "150",
+          price: "15",
           period: "شهر",
           features: [
             { name: "تغطية المستشفيات", included: true, value: "حتى 50,000 د.ك سنوياً" },
@@ -196,7 +196,7 @@ export default function InsurancePlansPage() {
         {
           id: "basic",
           name: "تأمين المحتويات",
-          price: "75",
+          price: "15",
           period: "سنة",
           features: [
             { name: "تغطية المحتويات", included: true, value: "حتى 10,000 د.ك" },
@@ -212,7 +212,7 @@ export default function InsurancePlansPage() {
         {
           id: "premium",
           name: "التأمين الشامل",
-          price: "150",
+          price: "15",
           period: "سنة",
           features: [
             { name: "تغطية المحتويات", included: true, value: "حتى 25,000 د.ك" },
@@ -228,7 +228,7 @@ export default function InsurancePlansPage() {
         {
           id: "elite",
           name: "التأمين الشامل بلس",
-          price: "250",
+          price: "25",
           period: "سنة",
           features: [
             { name: "تغطية المحتويات", included: true, value: "حتى 50,000 د.ك" },
@@ -251,7 +251,7 @@ export default function InsurancePlansPage() {
         {
           id: "basic",
           name: "الخطة الأساسية",
-          price: "30",
+          price: "3",
           period: "شهر",
           features: [
             { name: "تغطية الوفاة", included: true, value: "50,000 د.ك" },
@@ -267,7 +267,7 @@ export default function InsurancePlansPage() {
         {
           id: "premium",
           name: "الخطة المميزة",
-          price: "60",
+          price: "6",
           period: "شهر",
           features: [
             { name: "تغطية الوفاة", included: true, value: "100,000 د.ك" },
@@ -283,14 +283,14 @@ export default function InsurancePlansPage() {
         {
           id: "elite",
           name: "الخطة الذهبية",
-          price: "100",
+          price: "10",
           period: "شهر",
           features: [
-            { name: "تغطية الوفاة", included: true, value: "200,000 د.ك" },
-            { name: "تغطية العجز الكلي", included: true, value: "200,000 د.ك" },
+            { name: "تغطية الوفاة", included: true, value: "20,000 د.ك" },
+            { name: "تغطية العجز الكلي", included: true, value: "20,000 د.ك" },
             { name: "تغطية الأمراض المستعصية", included: true, value: "100,000 د.ك" },
-            { name: "تغطية العجز الجزئي", included: true, value: "100,000 د.ك" },
-            { name: "تغطية المصاريف الطبية", included: true, value: "50,000 د.ك" },
+            { name: "تغطية العجز الجزئي", included: true, value: "10,000 د.ك" },
+            { name: "تغطية المصاريف الطبية", included: true, value: "5,000 د.ك" },
             { name: "خيار الاستثمار", included: true },
           ],
           color: "#1a4980",
