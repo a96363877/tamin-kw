@@ -183,9 +183,13 @@ export default function CarInsurancePage() {
 
       {/* Action Buttons */}
       <div className="p-4 space-y-3">
+      <Link href="/apply?type=car">
+
         <Button className="w-full my-1 bg-[#c9a96e] hover:bg-[#b89355] text-white py-6 rounded-md text-lg">
           اشتري الآن
         </Button>
+        </Link>
+
         <Link href="/apply?type=car">
           <Button className="w-full my-1 bg-[#c9a96e] hover:bg-[#b89355] text-white py-6 rounded-md text-lg">
             تقديم طلب

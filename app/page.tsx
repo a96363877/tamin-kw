@@ -33,12 +33,12 @@ export default function Home() {
 
   const [isloading, setLoading] = useState(true)
   const services = [
-    { id: "travel", name: "السفر", icon: "1" },
-    { id: "cars", name: "السيارات", icon: "2" },
-    { id: "health", name: "حماية الحياة والصحة", icon: "3" },
-    { id: "property", name: "المنازل", icon: "4" },
-    { id: "mobile-homes", name: "ثابت ومتنقل سكني", icon: "5" },
-    { id: "medical", name: "الصحة والطبية", icon: "6" },
+    { id: "services-app/travel", name: "السفر", icon: "1" },
+    { id: "services-app/cars", name: "السيارات", icon: "2" },
+    { id: "services-app/health", name: "حماية الحياة والصحة", icon: "3" },
+    { id: "services-app/property", name: "المنازل", icon: "4" },
+    { id: "services/mobile-homes", name: "ثابت ومتنقل سكني", icon: "5" },
+    { id: "services/medical", name: "الصحة والطبية", icon: "6" },
   ]
 
   const testimonials = [
@@ -223,7 +223,7 @@ export default function Home() {
         <div className="grid grid-cols-2 gap-4">
           {services.map((service) => (
             <motion.div key={service.id} variants={item}>
-              <Link href={`/services-app/${service.id}`}>
+              <Link href={`/${service.id}`}>
                 <div className="border border-[#1a4980] rounded-lg p-4 flex flex-col items-center justify-center text-center h-24 hover:bg-[#1a4980] transition-colors">
                   <img src={`/${service.icon}.png`} width={50} />
                   <span className="text-sm">{service.name}</span>
