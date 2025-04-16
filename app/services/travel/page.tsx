@@ -159,6 +159,7 @@ export default function TravelInsurancePage() {
         </div>
       </div>
 
+    
       {/* Action Buttons */}
       <div className="p-4 space-y-3">
         <Button className="w-full bg-[#c9a96e] hover:bg-[#b89355] text-white py-6 rounded-md text-lg">
