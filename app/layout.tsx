@@ -1,11 +1,11 @@
 import type React from "react"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { Toaster } from "@/components/toaster"
-import { Viewport } from "next/dist/lib/metadata/types/extra-types"
+import { GoogleTagManager } from "@next/third-parties/google"
  
 export const viewport: Viewport = {
   width: 'device-width',
@@ -36,6 +36,9 @@ export default function RootLayout({
           <Footer />
         </div>
         <Toaster />
+        <GoogleTagManager gtmId="AW-410329319" />
+
+
       </body>
     </html>
   )
