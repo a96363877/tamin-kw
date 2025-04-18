@@ -192,13 +192,13 @@ export default function HealthInsurancePage() {
       </div>
       {/* Action Buttons */}
       <div className="p-4 space-y-3">
-        <Link href="/apply?type=health">
+        <Link href="/plans/health">
           <Button className="w-full bg-[#c9a96e] hover:bg-[#b89355] text-white py-6 rounded-md text-lg">
             اشتري الآن
           </Button>
         </Link>
 
-        <Link href="/apply?type=health">
+        <Link href="/plans/health">
           <Button className="w-full bg-[#c9a96e] hover:bg-[#b89355] text-white py-6 rounded-md text-lg">
             تقديم طلب
           </Button>

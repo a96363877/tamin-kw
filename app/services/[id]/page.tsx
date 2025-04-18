@@ -179,7 +179,7 @@ export default function ServicePage() {
           transition={{ delay: 0.8, duration: 0.5 }}
           className="mt-8 flex justify-center"
         >
-          <Link href={'/plans'}>
+      <Link href="/plans">
           <Button className="bg-[#c9a96e] hover:bg-[#b89355] text-white py-6 px-8 rounded-md text-lg w-full">
             احصل على عرض سعر
           </Button>

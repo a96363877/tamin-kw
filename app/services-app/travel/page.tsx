@@ -173,7 +173,7 @@ export default function TravelInsurancePage() {
       {/* Action Buttons */}
       <div className="p-4 space-y-3">
         <Link href={'/travel-form'}>
-        <Button className="w-full bg-[#c9a96e] hover:bg-[#b89355] text-white py-6 rounded-md text-lg">
+        <Button className="w-full my-2 bg-[#c9a96e] hover:bg-[#b89355] text-white py-6 rounded-md text-lg">
           اشتري الآن
         </Button>
         </Link>
@@ -182,7 +182,6 @@ export default function TravelInsurancePage() {
           قدم مطالبة
         </Button>
         </Link>
-        <Button className="w-full bg-[#c9a96e] hover:bg-[#b89355] text-white py-6 rounded-md text-lg">اتصل بنا</Button>
 
         <div className="mt-4 border border-[#c9a96e] rounded-md">
           <button
@@ -256,10 +255,13 @@ export default function TravelInsurancePage() {
         </div>
 
         <div className="mt-6">
+          <Link href={'/plans/travel'}>
           <Button className="w-full bg-[#c9a96e] hover:bg-[#b89355] text-white py-4 rounded-md">
-            عرض سفر
+            عرض سعر
             <ChevronRight className="h-4 w-4 mr-2" />
           </Button>
+          </Link>
+
         </div>
 
         <div className="flex justify-center mt-4">

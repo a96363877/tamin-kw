@@ -205,7 +205,7 @@ useEffect(()=>{
             تقديم طلب
           </Button>
         </Link>
-        <Link href="/car-quote/product">
+        <Link href="/plans/cars">
           <Button className="w-full  my-1 bg-[#c9a96e] hover:bg-[#b89355] text-white py-6 rounded-md text-lg">
             احصل على عرض سعر
           </Button>

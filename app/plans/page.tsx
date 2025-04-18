@@ -1,25 +1,31 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { useSearchParams } from "next/navigation"
+import { useParams, useRouter } from "next/navigation"
 import Image from "next/image"
-import Link from "next/link"
 import { motion } from "framer-motion"
 import { Check, X, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import InsurancePlanCard from "@/components/insurance-plan-card"
 
-export default function InsurancePlansPage() {
-  const searchParams = useSearchParams()
-  const [insuranceType, setInsuranceType] = useState<string>("travel")
+export default function InsuranceTypePlansPage() {
+  const params = useParams()
+  const router = useRouter()
   const [planView, setPlanView] = useState<"cards" | "table">("cards")
+  const [insuranceType, setInsuranceType] = useState<string>("travel")
+  const [selectedPlan, setSelectedPlan] = useState<string | null>(null)
 
   useEffect(() => {
-    const type = searchParams.get("type")
-    if (type && ["travel", "car", "health", "property", "life"].includes(type)) {
-      setInsuranceType(type)
+    if (params.type && typeof params.type === "string") {
+      if (["travel", "car", "health", "property", "life"].includes(params.type)) {
+        setInsuranceType(params.type)
+      } else {
+        // Redirect to default if invalid type
+        router.push("/plans/travel")
+      }
     }
-  }, [searchParams])
+  }, [params.type, router])
 
   // Insurance type data
   const insuranceData = {
@@ -31,7 +37,7 @@ export default function InsurancePlansPage() {
         {
           id: "basic",
           name: "الخطة الأساسية",
-          price: "2.5",
+          price: "15",
           period: "يوم",
           features: [
             { name: "التغطية الطبية الطارئة", included: true, value: "حتى 50,000 د.ك" },
@@ -47,7 +53,7 @@ export default function InsurancePlansPage() {
         {
           id: "premium",
           name: "الخطة المميزة",
-          price: "5",
+          price: "25",
           period: "يوم",
           features: [
             { name: "التغطية الطبية الطارئة", included: true, value: "حتى 100,000 د.ك" },
@@ -63,7 +69,7 @@ export default function InsurancePlansPage() {
         {
           id: "elite",
           name: "الخطة الذهبية",
-          price: "25",
+          price: "35",
           period: "يوم",
           features: [
             { name: "التغطية الطبية الطارئة", included: true, value: "حتى 300,000 د.ك" },
@@ -86,7 +92,7 @@ export default function InsurancePlansPage() {
         {
           id: "basic",
           name: "التأمين ضد الغير",
-          price: "12",
+          price: "120",
           period: "سنة",
           features: [
             { name: "المسؤولية تجاه الغير", included: true, value: "حتى 500,000 د.ك" },
@@ -102,7 +108,7 @@ export default function InsurancePlansPage() {
         {
           id: "premium",
           name: "التأمين الشامل",
-          price: "15",
+          price: "250",
           period: "سنة",
           features: [
             { name: "المسؤولية تجاه الغير", included: true, value: "حتى 750,000 د.ك" },
@@ -118,7 +124,7 @@ export default function InsurancePlansPage() {
         {
           id: "elite",
           name: "التأمين الشامل بلس",
-          price: "15",
+          price: "350",
           period: "سنة",
           features: [
             { name: "المسؤولية تجاه الغير", included: true, value: "حتى 1,000,000 د.ك" },
@@ -141,7 +147,7 @@ export default function InsurancePlansPage() {
         {
           id: "basic",
           name: "الخطة الأساسية",
-          price: "5",
+          price: "50",
           period: "شهر",
           features: [
             { name: "تغطية المستشفيات", included: true, value: "حتى 10,000 د.ك سنوياً" },
@@ -157,7 +163,7 @@ export default function InsurancePlansPage() {
         {
           id: "premium",
           name: "الخطة الفضية",
-          price: "10",
+          price: "100",
           period: "شهر",
           features: [
             { name: "تغطية المستشفيات", included: true, value: "حتى 25,000 د.ك سنوياً" },
@@ -173,7 +179,7 @@ export default function InsurancePlansPage() {
         {
           id: "elite",
           name: "الخطة الذهبية",
-          price: "15",
+          price: "150",
           period: "شهر",
           features: [
             { name: "تغطية المستشفيات", included: true, value: "حتى 50,000 د.ك سنوياً" },
@@ -196,7 +202,7 @@ export default function InsurancePlansPage() {
         {
           id: "basic",
           name: "تأمين المحتويات",
-          price: "15",
+          price: "75",
           period: "سنة",
           features: [
             { name: "تغطية المحتويات", included: true, value: "حتى 10,000 د.ك" },
@@ -212,7 +218,7 @@ export default function InsurancePlansPage() {
         {
           id: "premium",
           name: "التأمين الشامل",
-          price: "15",
+          price: "150",
           period: "سنة",
           features: [
             { name: "تغطية المحتويات", included: true, value: "حتى 25,000 د.ك" },
@@ -228,7 +234,7 @@ export default function InsurancePlansPage() {
         {
           id: "elite",
           name: "التأمين الشامل بلس",
-          price: "25",
+          price: "250",
           period: "سنة",
           features: [
             { name: "تغطية المحتويات", included: true, value: "حتى 50,000 د.ك" },
@@ -246,12 +252,12 @@ export default function InsurancePlansPage() {
     life: {
       title: "خطط تأمين الحياة",
       description: "اختر خطة تأمين الحياة المناسبة لاحتياجاتك",
-      image: "/placeholder.svg?key=myybs",
+      image: "/placeholder.svg?key=xkasq",
       plans: [
         {
           id: "basic",
           name: "الخطة الأساسية",
-          price: "3",
+          price: "30",
           period: "شهر",
           features: [
             { name: "تغطية الوفاة", included: true, value: "50,000 د.ك" },
@@ -267,7 +273,7 @@ export default function InsurancePlansPage() {
         {
           id: "premium",
           name: "الخطة المميزة",
-          price: "6",
+          price: "60",
           period: "شهر",
           features: [
             { name: "تغطية الوفاة", included: true, value: "100,000 د.ك" },
@@ -283,14 +289,14 @@ export default function InsurancePlansPage() {
         {
           id: "elite",
           name: "الخطة الذهبية",
-          price: "10",
+          price: "100",
           period: "شهر",
           features: [
-            { name: "تغطية الوفاة", included: true, value: "20,000 د.ك" },
-            { name: "تغطية العجز الكلي", included: true, value: "20,000 د.ك" },
+            { name: "تغطية الوفاة", included: true, value: "200,000 د.ك" },
+            { name: "تغطية العجز الكلي", included: true, value: "200,000 د.ك" },
             { name: "تغطية الأمراض المستعصية", included: true, value: "100,000 د.ك" },
-            { name: "تغطية العجز الجزئي", included: true, value: "10,000 د.ك" },
-            { name: "تغطية المصاريف الطبية", included: true, value: "5,000 د.ك" },
+            { name: "تغطية العجز الجزئي", included: true, value: "100,000 د.ك" },
+            { name: "تغطية المصاريف الطبية", included: true, value: "50,000 د.ك" },
             { name: "خيار الاستثمار", included: true },
           ],
           color: "#1a4980",
@@ -301,6 +307,11 @@ export default function InsurancePlansPage() {
   }
 
   const currentInsurance = insuranceData[insuranceType as keyof typeof insuranceData]
+
+  // When insurance type changes, reset selected plan
+  useEffect(() => {
+    setSelectedPlan(null)
+  }, [insuranceType])
 
   // Animation variants
   const container = {
@@ -318,6 +329,21 @@ export default function InsurancePlansPage() {
     show: { opacity: 1, y: 0 },
   }
 
+  const handleSelectPlan = (planId: string) => {
+    setSelectedPlan(planId)
+  }
+
+  const handleProceedToApply = () => {
+    router.push(`/apply?type=${insuranceType}${selectedPlan ? `&plan=${selectedPlan}` : ""}`)
+  }
+
+  const handleInsuranceTypeChange = (type: string) => {
+    router.push(`/plans/${type}`)
+  }
+
+  // Get selected plan details if any
+  const selectedPlanDetails = selectedPlan ? currentInsurance.plans.find((plan) => plan.id === selectedPlan) : null
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
@@ -334,47 +360,65 @@ export default function InsurancePlansPage() {
         </div>
       </div>
 
-      {/* Insurance Type Tabs */}
+      {/* Insurance Type Select */}
       <div className="bg-white shadow-md">
         <div className="container mx-auto px-4 py-4">
-          <Tabs defaultValue={insuranceType} onValueChange={(value) => setInsuranceType(value)} className="w-full">
-            <TabsList className="grid grid-cols-5 w-full">
-              <TabsTrigger value="travel">تأمين السفر</TabsTrigger>
-              <TabsTrigger value="car">تأمين السيارات</TabsTrigger>
-              <TabsTrigger value="health">التأمين الصحي</TabsTrigger>
-              <TabsTrigger value="property">تأمين المنازل</TabsTrigger>
-              <TabsTrigger value="life">تأمين الحياة</TabsTrigger>
-            </TabsList>
-          </Tabs>
+          <div className="flex justify-end max-w-xs mr-auto">
+            <Select value={insuranceType} onValueChange={handleInsuranceTypeChange}>
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="اختر نوع التأمين" />
+              </SelectTrigger>
+              <SelectContent>
+                {Object.keys(insuranceData).map((type) => (
+                  <SelectItem key={type} value={type}>
+                    {insuranceData[type as keyof typeof insuranceData].title}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
         </div>
       </div>
 
       {/* View Toggle */}
       <div className="container mx-auto px-4 py-6">
         <div className="flex justify-between items-center mb-8">
-          <div className="flex space-x-2">
-            <Button
-              variant={planView === "cards" ? "default" : "outline"}
-              onClick={() => setPlanView("cards")}
-              className="bg-[#0a2e5c]"
-            >
-              عرض البطاقات
-            </Button>
-            <Button
-              variant={planView === "table" ? "default" : "outline"}
-              onClick={() => setPlanView("table")}
-              className="bg-[#0a2e5c]"
-            >
-              عرض الجدول
-            </Button>
-          </div>
-          <Link href={`/apply?type=${insuranceType}`}>
-            <Button className="bg-[#c9a96e] hover:bg-[#b89355]">
-              تقديم طلب
-              <ArrowRight className="mr-2 h-4 w-4" />
-            </Button>
-          </Link>
+        
+          <Button className="bg-[#c9a96e] hover:bg-[#b89355]" onClick={handleProceedToApply} disabled={!selectedPlan}>
+            {selectedPlan ? "متابعة الطلب" : "اختر خطة أولاً"}
+            <ArrowRight className="mr-2 h-4 w-4" />
+          </Button>
         </div>
+
+        {/* Selected Plan Summary */}
+        {selectedPlan && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="bg-white rounded-lg shadow-md p-4 mb-6 border-2"
+            style={{ borderColor: selectedPlanDetails?.color || "#0a2e5c" }}
+          >
+            <div className="flex flex-col md:flex-row justify-between items-center">
+              <div className="flex flex-col items-center md:items-start mb-4 md:mb-0">
+                <h3 className="text-xl font-bold">الخطة المختارة:</h3>
+                <div className="flex items-center mt-2">
+                  <div
+                    className="w-4 h-4 rounded-full mr-2"
+                    style={{ backgroundColor: selectedPlanDetails?.color || "#0a2e5c" }}
+                  ></div>
+                  <span className="text-lg font-semibold">{selectedPlanDetails?.name}</span>
+                </div>
+              </div>
+              <div className="flex flex-col items-center md:items-end">
+                <div className="text-2xl font-bold">{selectedPlanDetails?.price} د.ك</div>
+                <div className="text-gray-600">/ {selectedPlanDetails?.period}</div>
+              </div>
+              <Button variant="outline" className="mt-4 md:mt-0" onClick={() => setSelectedPlan(null)}>
+                تغيير الخطة
+              </Button>
+            </div>
+          </motion.div>
+        )}
 
         {/* Cards View */}
         {planView === "cards" && (
@@ -385,44 +429,17 @@ export default function InsurancePlansPage() {
             className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12"
           >
             {currentInsurance.plans.map((plan) => (
-              <motion.div
-                key={plan.id}
-                variants={item}
-                className={`bg-white rounded-lg shadow-lg overflow-hidden border-t-4`}
-                style={{ borderColor: plan.color }}
-              >
-                {plan.recommended && (
-                  <div className="bg-[#c9a96e] text-white text-center py-1 text-sm font-bold">موصى به</div>
-                )}
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2 text-center">{plan.name}</h3>
-                  <div className="text-center mb-6">
-                    <span className="text-4xl font-bold">{plan.price}</span>
-                    <span className="text-gray-500 text-lg"> د.ك / {plan.period}</span>
-                  </div>
-
-                  <div className="space-y-4 mb-6">
-                    {plan.features.map((feature, index) => (
-                      <div key={index} className="flex items-center justify-between">
-                        <div className="flex items-center">
-                          {feature.included ? (
-                            <Check className="h-5 w-5 text-green-500 ml-2" />
-                          ) : (
-                            <X className="h-5 w-5 text-red-500 ml-2" />
-                          )}
-                          <span className={feature.included ? "text-gray-800" : "text-gray-400"}>{feature.name}</span>
-                        </div>
-                        {feature.included && feature.value && (
-                          <span className="text-sm text-gray-600">{feature.value}</span>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-
-                  <Button className="w-full" style={{ backgroundColor: plan.color }}>
-                    اختر هذه الخطة
-                  </Button>
-                </div>
+              <motion.div key={plan.id} variants={item}>
+                <InsurancePlanCard
+                  name={plan.name}
+                  price={plan.price}
+                  period={plan.period}
+                  features={plan.features}
+                  color={plan.color}
+                  recommended={plan.recommended}
+                  onSelect={() => handleSelectPlan(plan.id)}
+                  selected={selectedPlan === plan.id}
+                />
               </motion.div>
             ))}
           </motion.div>
@@ -490,8 +507,14 @@ export default function InsurancePlansPage() {
                   <td className="py-4 px-6"></td>
                   {currentInsurance.plans.map((plan) => (
                     <td key={plan.id} className="py-4 px-6 text-center">
-                      <Button className="w-full" style={{ backgroundColor: plan.color }}>
-                        اختر هذه الخطة
+                      <Button
+                        className={`w-full ${selectedPlan === plan.id ? "ring-2 ring-offset-2" : ""}`}
+                        style={{
+                          backgroundColor: plan.color,
+                        }}
+                        onClick={() => handleSelectPlan(plan.id)}
+                      >
+                        {selectedPlan === plan.id ? "تم الاختيار" : "اختر هذه الخطة"}
                       </Button>
                     </td>
                   ))}
@@ -545,16 +568,18 @@ export default function InsurancePlansPage() {
 
         {/* Navigation */}
         <div className="flex justify-between mb-12">
-          <Button variant="outline" className="flex items-center">
+          <Button variant="outline" className="flex items-center" onClick={() => router.back()}>
             <ChevronRight className="mr-2 h-4 w-4" />
             العودة
           </Button>
-          <Link href={`/apply?type=${insuranceType}`}>
-            <Button className="bg-[#c9a96e] hover:bg-[#b89355] flex items-center">
-              تقديم طلب
-              <ChevronLeft className="mr-2 h-4 w-4" />
-            </Button>
-          </Link>
+          <Button
+            className="bg-[#c9a96e] hover:bg-[#b89355] flex items-center"
+            onClick={handleProceedToApply}
+            disabled={!selectedPlan}
+          >
+            {selectedPlan ? "متابعة الطلب" : "اختر خطة أولاً"}
+            <ChevronLeft className="mr-2 h-4 w-4" />
+          </Button>
         </div>
       </div>
     </div>
