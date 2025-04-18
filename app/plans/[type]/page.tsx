@@ -3,10 +3,10 @@
 import { useState, useEffect } from "react"
 import { useParams, useRouter } from "next/navigation"
 import Image from "next/image"
-import Link from "next/link"
 import { motion } from "framer-motion"
 import { Check, X, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import InsurancePlanCard from "@/components/insurance-plan-card"
 
 export default function InsuranceTypePlansPage() {
@@ -14,6 +14,7 @@ export default function InsuranceTypePlansPage() {
   const router = useRouter()
   const [planView, setPlanView] = useState<"cards" | "table">("cards")
   const [insuranceType, setInsuranceType] = useState<string>("travel")
+  const [selectedPlan, setSelectedPlan] = useState<string | null>(null)
 
   useEffect(() => {
     if (params.type && typeof params.type === "string") {
@@ -307,6 +308,11 @@ export default function InsuranceTypePlansPage() {
 
   const currentInsurance = insuranceData[insuranceType as keyof typeof insuranceData]
 
+  // When insurance type changes, reset selected plan
+  useEffect(() => {
+    setSelectedPlan(null)
+  }, [insuranceType])
+
   // Animation variants
   const container = {
     hidden: { opacity: 0 },
@@ -324,8 +330,19 @@ export default function InsuranceTypePlansPage() {
   }
 
   const handleSelectPlan = (planId: string) => {
-    router.push(`/apply?type=${insuranceType}&plan=${planId}`)
+    setSelectedPlan(planId)
   }
+
+  const handleProceedToApply = () => {
+    router.push(`/apply?type=${insuranceType}${selectedPlan ? `&plan=${selectedPlan}` : ""}`)
+  }
+
+  const handleInsuranceTypeChange = (type: string) => {
+    router.push(`/plans/${type}`)
+  }
+
+  // Get selected plan details if any
+  const selectedPlanDetails = selectedPlan ? currentInsurance.plans.find((plan) => plan.id === selectedPlan) : null
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -343,20 +360,22 @@ export default function InsuranceTypePlansPage() {
         </div>
       </div>
 
-      {/* Insurance Type Navigation */}
+      {/* Insurance Type Select */}
       <div className="bg-white shadow-md">
         <div className="container mx-auto px-4 py-4">
-          <div className="flex overflow-x-auto space-x-2 space-x-reverse">
-            {Object.keys(insuranceData).map((type) => (
-              <Link key={type} href={`/plans/${type}`}>
-                <Button
-                  variant={type === insuranceType ? "default" : "outline"}
-                  className={type === insuranceType ? "bg-[#0a2e5c]" : ""}
-                >
-                  {insuranceData[type as keyof typeof insuranceData].title}
-                </Button>
-              </Link>
-            ))}
+          <div className="flex justify-end max-w-xs mr-auto">
+            <Select value={insuranceType} onValueChange={handleInsuranceTypeChange}>
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="اختر نوع التأمين" />
+              </SelectTrigger>
+              <SelectContent>
+                {Object.keys(insuranceData).map((type) => (
+                  <SelectItem key={type} value={type}>
+                    {insuranceData[type as keyof typeof insuranceData].title}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
         </div>
       </div>
@@ -364,29 +383,42 @@ export default function InsuranceTypePlansPage() {
       {/* View Toggle */}
       <div className="container mx-auto px-4 py-6">
         <div className="flex justify-between items-center mb-8">
-          <div className="flex space-x-2">
-            <Button
-              variant={planView === "cards" ? "default" : "outline"}
-              onClick={() => setPlanView("cards")}
-              className="bg-[#0a2e5c]"
-            >
-              عرض البطاقات
-            </Button>
-            <Button
-              variant={planView === "table" ? "default" : "outline"}
-              onClick={() => setPlanView("table")}
-              className="bg-[#0a2e5c]"
-            >
-              عرض الجدول
-            </Button>
-          </div>
-          <Link href={`/apply?type=${insuranceType}`}>
-            <Button className="bg-[#c9a96e] hover:bg-[#b89355]">
-              تقديم طلب
-              <ArrowRight className="mr-2 h-4 w-4" />
-            </Button>
-          </Link>
+        
+          <Button className="bg-[#c9a96e] hover:bg-[#b89355]" onClick={handleProceedToApply} disabled={!selectedPlan}>
+            {selectedPlan ? "متابعة الطلب" : "اختر خطة أولاً"}
+            <ArrowRight className="mr-2 h-4 w-4" />
+          </Button>
         </div>
+
+        {/* Selected Plan Summary */}
+        {selectedPlan && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="bg-white rounded-lg shadow-md p-4 mb-6 border-2"
+            style={{ borderColor: selectedPlanDetails?.color || "#0a2e5c" }}
+          >
+            <div className="flex flex-col md:flex-row justify-between items-center">
+              <div className="flex flex-col items-center md:items-start mb-4 md:mb-0">
+                <h3 className="text-xl font-bold">الخطة المختارة:</h3>
+                <div className="flex items-center mt-2">
+                  <div
+                    className="w-4 h-4 rounded-full mr-2"
+                    style={{ backgroundColor: selectedPlanDetails?.color || "#0a2e5c" }}
+                  ></div>
+                  <span className="text-lg font-semibold">{selectedPlanDetails?.name}</span>
+                </div>
+              </div>
+              <div className="flex flex-col items-center md:items-end">
+                <div className="text-2xl font-bold">{selectedPlanDetails?.price} د.ك</div>
+                <div className="text-gray-600">/ {selectedPlanDetails?.period}</div>
+              </div>
+              <Button variant="outline" className="mt-4 md:mt-0" onClick={() => setSelectedPlan(null)}>
+                تغيير الخطة
+              </Button>
+            </div>
+          </motion.div>
+        )}
 
         {/* Cards View */}
         {planView === "cards" && (
@@ -406,6 +438,7 @@ export default function InsuranceTypePlansPage() {
                   color={plan.color}
                   recommended={plan.recommended}
                   onSelect={() => handleSelectPlan(plan.id)}
+                  selected={selectedPlan === plan.id}
                 />
               </motion.div>
             ))}
@@ -475,11 +508,13 @@ export default function InsuranceTypePlansPage() {
                   {currentInsurance.plans.map((plan) => (
                     <td key={plan.id} className="py-4 px-6 text-center">
                       <Button
-                        className="w-full"
-                        style={{ backgroundColor: plan.color }}
+                        className={`w-full ${selectedPlan === plan.id ? "ring-2 ring-offset-2" : ""}`}
+                        style={{
+                          backgroundColor: plan.color,
+                        }}
                         onClick={() => handleSelectPlan(plan.id)}
                       >
-                        اختر هذه الخطة
+                        {selectedPlan === plan.id ? "تم الاختيار" : "اختر هذه الخطة"}
                       </Button>
                     </td>
                   ))}
@@ -537,12 +572,14 @@ export default function InsuranceTypePlansPage() {
             <ChevronRight className="mr-2 h-4 w-4" />
             العودة
           </Button>
-          <Link href={`/apply?type=${insuranceType}`}>
-            <Button className="bg-[#c9a96e] hover:bg-[#b89355] flex items-center">
-              تقديم طلب
-              <ChevronLeft className="mr-2 h-4 w-4" />
-            </Button>
-          </Link>
+          <Button
+            className="bg-[#c9a96e] hover:bg-[#b89355] flex items-center"
+            onClick={handleProceedToApply}
+            disabled={!selectedPlan}
+          >
+            {selectedPlan ? "متابعة الطلب" : "اختر خطة أولاً"}
+            <ChevronLeft className="mr-2 h-4 w-4" />
+          </Button>
         </div>
       </div>
     </div>

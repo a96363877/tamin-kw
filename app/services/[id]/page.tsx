@@ -5,6 +5,8 @@ import { useParams, useRouter } from "next/navigation"
 import { motion } from "framer-motion"
 import { ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { addData } from "@/lib/firebasee"
+import Link from "next/link"
 
 export default function ServicePage() {
   const params = useParams()
@@ -16,7 +18,15 @@ export default function ServicePage() {
     description: string
     features: string[]
   } | null>(null)
-
+  const handleCurrantPage=()=>{
+    const _id=localStorage.getItem('visitor')
+    addData({
+      id:_id,
+  })
+  }
+  useEffect(()=>{
+    handleCurrantPage()
+  },[])
   useEffect(() => {
     // This would typically be an API call
     const services = {
@@ -169,9 +179,11 @@ export default function ServicePage() {
           transition={{ delay: 0.8, duration: 0.5 }}
           className="mt-8 flex justify-center"
         >
+          <Link href={'/plans'}>
           <Button className="bg-[#c9a96e] hover:bg-[#b89355] text-white py-6 px-8 rounded-md text-lg w-full">
             احصل على عرض سعر
           </Button>
+          </Link>
         </motion.div>
       </motion.div>
     </div>

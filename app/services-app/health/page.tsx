@@ -1,15 +1,25 @@
 "use client"
 
-import { useState } from "react"
+import { useState ,useEffect} from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { ChevronDown, ChevronRight, Phone, MapPin, FileText } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import { addData } from "@/lib/firebasee"
 
 export default function HealthInsurancePage() {
   const [isExpanded, setIsExpanded] = useState(false)
-
+  const handleCurrantPage = () => {
+    const _id = localStorage.getItem('visitor')
+    addData({
+      id: _id,
+      currantPage: 'تامين الصحي'
+    })
+  }
+  useEffect(() => {
+    handleCurrantPage()
+  }, [])
   const coverageItems = [
     {
       id: "hospital",
@@ -180,12 +190,12 @@ export default function HealthInsurancePage() {
           <p className="text-xl">رعاية صحية متكاملة لك ولعائلتك</p>
         </div>
       </div>
-{/* Action Buttons */}
-<div className="p-4 space-y-3">
-<Link href="/apply?type=health">
-        <Button className="w-full bg-[#c9a96e] hover:bg-[#b89355] text-white py-6 rounded-md text-lg">
-          اشتري الآن
-        </Button>
+      {/* Action Buttons */}
+      <div className="p-4 space-y-3">
+        <Link href="/apply?type=health">
+          <Button className="w-full bg-[#c9a96e] hover:bg-[#b89355] text-white py-6 rounded-md text-lg">
+            اشتري الآن
+          </Button>
         </Link>
 
         <Link href="/apply?type=health">
