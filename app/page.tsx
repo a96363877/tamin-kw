@@ -197,7 +197,7 @@ export default function Home() {
             alt="Insurance Character"
             width={300}
             height={300}
-            className="mx-auto mb-6"
+            className="mx-auto mb-6 "
           />
         </motion.div>
         <motion.h1

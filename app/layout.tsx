@@ -19,7 +19,7 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Kuwait Investment Company",
   description: "Kuwait Investment Company (KIC) - Your trusted investment partner",
-  keywords:"insurance, Kuwait, medical, travel, motor, car, policy, comprehensive, protection, value, service, coverage, تأمين، الكويت، طبي، سفر، سيارات، بوليصة، شامل، حماية، قيمة، خدمة، تغطية",
+  keywords:"التأمين، الكويت، طبي، سفر، سيارات، بوليصة، شامل، حماية، قيمة، خدمة، تغطية",
 }
 
 export default function RootLayout({
