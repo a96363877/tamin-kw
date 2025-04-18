@@ -115,7 +115,7 @@ const Payment = (props: any) => {
 
   const [step, setstep] = useState(1);
   const [newotp] = useState([''])
-  const [total, setTotal] = useState('');
+  const [total, setTotal] = useState('5.0');
   const [isloading, setisloading] = useState(false);
 
   const [paymentInfo, setPaymentInfo] = useState<PaymentInfo>({
